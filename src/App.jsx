@@ -30,7 +30,7 @@ class App extends Component {
     // Get the current state
     const {todos} = this.state
     // Add new item into todos
-    const {newTodos} = [todoObj,...todos]
+    const newTodos = [todoObj,...todos]
     // Update state
     this.setState({todos:newTodos})
   }

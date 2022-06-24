@@ -14,7 +14,7 @@ export default class Header extends Component {
     //   return
     // }
     // 準備好一個todo對象
-    const {todoObj} = {id:nanoid(),name:target.value,done:false}
+    const todoObj = {id:nanoid(),name:target.value,done:false}
     // todoObj 傳到 App
     this.props.addTodo(todoObj)
   }
