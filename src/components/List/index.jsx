@@ -1,18 +1,22 @@
 import React, { Component } from "react";
-import Item from "../Item"
-import './index.css'
+import propTypes from 'prop-types';
+import Item from "../Item";
+import "./index.css";
 
 export default class List extends Component {
+  // 對接收props的類型, 必要性進行限制
+  static propTypes = {
+    todos:propTypes.array.isRequired,
+    updateTodo:propTypes.func.isRequired
+  };
+
   render() {
-    const {todos,updateTodo} = this.props
-    console.log(todos);
+    const { todos, updateTodo } = this.props;
     return (
       <ul className="todo-main">
-        {
-          todos.map((todo)=>{
-            return <Item key={todo.id} {...todo} updateTodo={updateTodo}/>
-          })
-        }
+        {todos.map((todo) => {
+          return <Item key={todo.id} {...todo} updateTodo={updateTodo} />;
+        })}
       </ul>
     );
   }
