@@ -13,13 +13,11 @@ export default class Item extends Component {
 
   handleCheck = (id)=>{
     return (event)=>{
-      console.log(id,event.target.checked);
       this.props.updateTodo(id,event.target.checked)
     }
   }
 
   handleDelete =(id)=>{
-    console.log("delete id",id);
     this.props.deleteTodo(id);
   }
 
@@ -31,7 +29,7 @@ export default class Item extends Component {
         onMouseEnter={this.handleMouse(true)}
         onMouseLeave={this.handleMouse(false)}> 
         <label>
-          <input type="checkbox" defaultChecked={done} onChange={this.handleCheck(id)}/>
+          <input type="checkbox" checked={done} onChange={this.handleCheck(id)}/>
           <span>{name}</span>
         </label>
         <button onClick={()=>this.handleDelete(id)} className="btn btn-danger" style={{display:mouse ? "block":"none"}}>
