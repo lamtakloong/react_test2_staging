@@ -1,83 +1,65 @@
-/*
-import React from "react";
-
-class App extends React.Component {
-  render() {
-    return <div>hello React</div>;
-  }
-}
-
-export default App;
-*/
-// -----------------------------------
-
 import React, { Component } from "react";
-import Header from "./components/Header"
-import List from "./components/List"
-import Footer from "./components/Footer"
 import "./App.css";
 
-class App extends Component {
-  // Initialization state
-  state = {todos:[
-    {id:'001',name:'sleep',done:true},
-    {id:'002',name:'study',done:true},
-    {id:'003',name:'coding',done:false},
-    {id:'004',name:'go away',done:true}
-  ]}
-  // addTodo used to add new item, the accepted parameter is todo Object
-  addTodo = (todoObj)=>{
-    // Get the current state
-    const {todos} = this.state
-    // Add new item into todos
-    const newTodos = [todoObj,...todos]
-    // Update state
-    this.setState({todos:newTodos})
-  }
-  updateTodo = (id,done)=>{
-    // Get the state of todos
-    const {todos} = this.state
-    // Update the state
-    const newTodos = todos.map((todoObj)=>{
-      if (todoObj.id === id) return {...todoObj,done}
-      else return todoObj
-    })
-    this.setState({todos:newTodos})
-  }
-  deleteTodo = (id)=>{
-    const {todos} = this.state
-    const newTodos = todos.filter((todoObj)=>{
-      return todoObj.id !==id
-    })
-    this.setState({todos:newTodos})
-  }
-  checkAllTodo = (done)=>{
-    const {todos} = this.state
-    const newTodos = todos.map((todoObj)=>{
-      return {...todoObj,done}
-    })
-    this.setState({todos:newTodos})
-  }
-  clearAllDone = ()=>{
-    const {todos} = this.state
-    const newTodos = todos.filter((todoObj)=>{
-      return !todoObj.done
-    })
-    this.setState({todos:newTodos})
-  }
-
+export default class App extends Component {
   render() {
-    const {todos}= this.state
     return (
-      <div className="todo-container">
-        <div className="todo-wrap">
-          <Header addTodo={this.addTodo}/>
-          <List todos={todos} updateTodo={this.updateTodo} deleteTodo={this.deleteTodo}/>
-          <Footer todos={todos} checkAllTodo={this.checkAllTodo} clearAllDone={this.clearAllDone}/>
+      <div className="container">
+        <section className="jumbotron">
+          <h3 className="jumbotron-heading">Search Github Users</h3>
+          <div>
+            <input type="text" placeholder="enter the name you search" />
+            &nbsp;<button>Search</button>
+          </div>
+        </section>
+        <div className="row">
+          <div className="card">
+            <a href="https://github.com/reactjs" target="_blank">
+              <img
+                src="https://avatars.githubusercontent.com/u/6412038?v=3"
+                style={{ width: "100px" }}
+              />
+            </a>
+            <p className="card-text">reactjs</p>
+          </div>
+          <div className="card">
+            <a href="https://github.com/reactjs" target="_blank">
+              <img
+                src="https://avatars.githubusercontent.com/u/6412038?v=3"
+                style={{ width: "100px" }}
+              />
+            </a>
+            <p className="card-text">reactjs</p>
+          </div>
+          <div className="card">
+            <a href="https://github.com/reactjs" target="_blank">
+              <img
+                src="https://avatars.githubusercontent.com/u/6412038?v=3"
+                style={{ width: "100px" }}
+              />
+            </a>
+            <p className="card-text">reactjs</p>
+          </div>
+          <div className="card">
+            <a href="https://github.com/reactjs" target="_blank">
+              <img
+                src="https://avatars.githubusercontent.com/u/6412038?v=3"
+                style={{ width: "100px" }}
+              />
+            </a>
+            <p className="card-text">reactjs</p>
+          </div>
+          <div className="card">
+            <a href="https://github.com/reactjs" target="_blank">
+              <img
+                src="https://avatars.githubusercontent.com/u/6412038?v=3"
+                style={{ width: "100px" }}
+              />
+            </a>
+            <p className="card-text">reactjs</p>
+          </div>
         </div>
       </div>
     );
   }
 }
-
-export default App;
